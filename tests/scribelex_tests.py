@@ -1,4 +1,4 @@
-from src.scribelex import *
+from scribelex.base import *
 
 
 def test_shift():

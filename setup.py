@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="scribelex",
-    version="1.0.6",
+    version="1.0.7",
     author="UncleDrema",
     author_email="missl.wipiece@gmail.com",
     description="Scribelex is a lightweight Python library for building parser combinators.",
@@ -13,8 +13,7 @@ setup(
     long_description_content_type="text/markdown",
     keywords=["parser", "parsing", "combinator", "library", "Python", "structured data", "grammar", "syntax", "parsing toolkit"],
     url="https://github.com/UncleDrema/scribelex",
-    packages=find_packages("src"),
-    package_dir={"": "src"},
+    packages=["scribelex"],
     license="MIT",
     classifiers=[
         "Development Status :: 5 - Production/Stable",

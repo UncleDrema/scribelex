@@ -1,4 +1,4 @@
-from scribelex import filt, shift, one_or_more, fmap, seq, atom, one_of, zero_or_more, right
+from base import filt, shift, one_or_more, fmap, seq, atom, one_of, zero_or_more, right
 import string as python_string
 
 # Цифра
