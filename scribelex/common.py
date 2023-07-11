@@ -1,4 +1,4 @@
-from base import filt, shift, one_or_more, fmap, seq, atom, one_of, zero_or_more, right
+from .base import filt, shift, one_or_more, fmap, seq, atom, one_of, zero_or_more, right, left
 import string as python_string
 
 # Цифра
@@ -34,3 +34,6 @@ string_printable_but = lambda vals: string_of([x for x in python_string.printabl
 # Последовательность из хотя бы одного элемента, разделенная разделителем
 separated_nonempty_list = lambda parser, separator: \
     fmap(lambda x: [x[0]] + x[1])(seq(parser, zero_or_more(right(separator, parser))))
+
+# Парсер, не допускающий оставшихся значений во входных данных
+total = lambda parser: left(parser, empty)
