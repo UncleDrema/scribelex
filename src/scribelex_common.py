@@ -1,4 +1,4 @@
-from scribelex import *
+from scribelex import filt, shift, one_or_more, fmap, seq, atom, one_of, zero_or_more, right
 import string as python_string
 
 # Цифра
@@ -32,5 +32,5 @@ string_ascii = string_of(python_string.ascii_letters)
 string_printable_but = lambda vals: string_of([x for x in python_string.printable if x not in vals])
 
 # Последовательность из хотя бы одного элемента, разделенная разделителем
-separated_nonempty_list = lambda parser, separator: fmap(lambda x: [x[0]] + x[1]) \
-    (seq(parser, zero_or_more(right(separator, parser))))
+separated_nonempty_list = lambda parser, separator: \
+    fmap(lambda x: [x[0]] + x[1])(seq(parser, zero_or_more(right(separator, parser))))
