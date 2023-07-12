@@ -1,4 +1,4 @@
-from .base import filt, shift, one_or_more, fmap, seq, atom, one_of, zero_or_more, right, left
+from .base import filt, shift, one_or_more, fmap, seq, atom, one_of, zero_or_more, right, left, between
 import string as python_string
 
 # Цифра
@@ -37,3 +37,6 @@ separated_nonempty_list = lambda parser, separator: \
 
 # Парсер, не допускающий оставшихся значений во входных данных
 total = lambda parser: left(parser, empty)
+
+# Обрезка лишних символов
+trim = lambda bad: lambda parser: between(zero_or_more(one_of(bad)), parser, zero_or_more(one_of(bad)))
